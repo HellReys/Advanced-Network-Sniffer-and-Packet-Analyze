@@ -14,7 +14,12 @@ if not os.path.exists(LOG_DIR):
 
 PCAP_FILE = os.path.join(LOG_DIR, "captured_traffic.pcap")
 
+stats = {"packets": 0, "alerts": 0}
+
 def packet_callback(packet):
+    global stats
+    stats["packets"] += 1
+
     # Analyze the packet
     data = parse_packet(packet)
 
@@ -29,7 +34,14 @@ def packet_callback(packet):
         print(f"📡 [{src}] -> [{dst}] | {info}")
 
         if credential_alert:
+            stats["alerts"] += 1
             print(f"🚨 {credential_alert}")
+
+        # A visual summary is included in every 50 packs.
+        if stats["packets"] % 50 == 0:
+            print(f"\n" + "=" * 40)
+            print(f"📊 [LIVE STATS] Total: {stats['packets']} | Alerts: {stats['alerts']}")
+            print("=" * 40 + "\n")
 
     wrpcap(PCAP_FILE, packet, append=True)
 
