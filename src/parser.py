@@ -1,5 +1,6 @@
 from scapy.layers.inet import IP, TCP, UDP
 from scapy.layers.http import HTTPRequest
+from scapy.layers.dns import DNSQR, DNS
 
 
 def parse_packet(packet):
@@ -29,7 +30,8 @@ def parse_packet(packet):
             analysis_results['sport'] = packet[UDP].sport
             analysis_results['dport'] = packet[UDP].dport
 
-            if packet.dport == 53 or packet.sport == 53:
-                analysis_results['info'] = "🔍 DNS Query/Response"
+            if packet.haslayer(DNS) and packet.getlayer(DNS).qr == 0:
+                query_name = packet[DNSQR].qname.decode()
+                analysis_results['info'] = f"🔍 DNS Query: {query_name}"
 
     return analysis_results
