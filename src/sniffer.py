@@ -24,6 +24,11 @@ def packet_callback(packet):
     data = parse_packet(packet)
 
     if data:
+        threat_alert = analyzer.detect_malicious_ip(data.get('src_ip'), data.get('dst_ip'))
+        if threat_alert:
+            stats["alerts"] += 1
+            print(f"\033[91m{threat_alert}\033[0m")
+
         credential_alert = analyzer.detect_credentials(packet)
 
         src = data.get('src_ip', 'Unknown')
@@ -42,6 +47,9 @@ def packet_callback(packet):
             print(f"\n" + "=" * 40)
             print(f"📊 [LIVE STATS] Total: {stats['packets']} | Alerts: {stats['alerts']}")
             print("=" * 40 + "\n")
+
+
+
 
     wrpcap(PCAP_FILE, packet, append=True)
 
