@@ -30,8 +30,8 @@
 ### 2. Setup
 ```bash
 # Clone the project
-git clone [https://github.com/yourusername/NetSpy.git](https://github.com/yourusername/NetSpy.git)
-cd NetSpy
+git clone https://github.com/HellReys/Advanced-Network-Sniffer-and-Packet-Analyze
+cd Advanced-Network-Sniffer-and-Packet-Analyze
 
 # Install dependencies
 pip install -r requirements.txt
