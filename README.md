@@ -1,6 +1,6 @@
 # Advanced Network Sniffer & Threat Analyzer
 
-**NetSpy** is a powerful, Python-based network analysis tool designed for real-time packet inspection, credential hunting, and threat intelligence matching. It monitors network interfaces at a low level, parses protocols, and alerts on suspicious activities.
+**HellReys-NetSpy** is a powerful, Python-based network analysis tool designed for real-time packet inspection, credential hunting, and threat intelligence matching. It monitors network interfaces at a low level, parses protocols, and alerts on suspicious activities.
 
 
 
