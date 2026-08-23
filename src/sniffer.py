@@ -55,7 +55,6 @@ def packet_callback(packet):
 
 
 def start_sniffing(interface):
-    from scapy.layers import http
 
     print(f"🚀 NetSpy is listening on {interface}...")
     sniff(iface=interface, prn=packet_callback, store=0)

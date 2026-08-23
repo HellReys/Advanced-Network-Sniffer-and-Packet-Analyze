@@ -1,4 +1,3 @@
-import re
 import json
 import os
 
@@ -50,6 +49,6 @@ class TrafficAnalyzer:
     def analyze_behavior(self, data):
         """
         Logic for detecting suspicious network behaviors (e.g., port scanning).
-        (Later we can add more complex logic here)
+        (Later I can add more complex logic here)
         """
         pass
