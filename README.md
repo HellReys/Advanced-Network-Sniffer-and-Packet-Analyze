@@ -1,24 +1,24 @@
 # Advanced Network Sniffer & Threat Analyzer
 
-**NetSpyNG** is a powerful, Python-based network analysis tool designed for real-time packet inspection, credential hunting, and threat intelligence matching. It monitors network interfaces at a low level, parses protocols, and alerts on suspicious activities.
+**NetSpy** is a powerful, Python based network analysis tool designed for real time packet inspection, credential hunting, and threat intelligence matching. It monitors network interfaces at a low level, parses protocols, and alerts on suspicious activities.
 
 
 
 ## Core Features
 
-* **Deep Packet Inspection (DPI):** Analyzes layers (IP, TCP, UDP, DNS, HTTP) in real-time.
+* **Deep Packet Inspection (DPI):** Analyzes layers (IP, TCP, UDP, DNS, HTTP) in real time.
 * **Credential Sniffing:** Automatically detects potential usernames and passwords in unencrypted (HTTP/FTP) traffic.
 * **DNS Monitoring:** Tracks domain name queries to monitor web activity.
 * **Threat Intelligence:** Matches incoming/outgoing traffic against a custom `blacklist.json` of malicious IPs.
 * **Automated PCAP Logging:** Saves all captured traffic into professional `.pcap` files for further analysis in Wireshark.
-* **Live Statistics:** Provides periodic summaries of processed packets and high-priority alerts.
+* **Live Statistics:** Provides periodic summaries of processed packets and high priority alerts.
 
 ## Project Structure
 
 * **`src/sniffer.py`**: The core engine that captures and logs packets.
 * **`src/parser.py`**: Deconstructs raw packets into readable data (IPs, Ports, Protocols).
 * **`src/analyzer.py`**: The intelligence layer that hunts for credentials and blacklisted IPs.
-* **`main.py`**: The entry point with root-privilege checks and environment configuration.
+* **`main.py`**: The entry point with root privilege checks and environment configuration.
 
 ## Installation & Usage
 
@@ -30,8 +30,8 @@
 ### 2. Setup
 ```bash
 # Clone the project
-git clone https://github.com/HellReys/Advanced-Network-Sniffer-and-Packet-Analyze
-cd Advanced-Network-Sniffer-and-Packet-Analyze
+git clone https://github.com/HellReys/NetSpyNG.git
+cd NetSpyNG
 
 # Install dependencies
 pip install -r requirements.txt
